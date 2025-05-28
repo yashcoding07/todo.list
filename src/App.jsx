@@ -1,23 +1,17 @@
 import { useState } from 'react';
 import './index.css';
+import Create from './Components/Create';
+import Read from './Components/Read';
 
 const App = () => {
   const [todos, settodos] = useState([
-    {id: 1, title: "Kaam Karle Bhai", isCompleted: false}
-  ]);
-
-  const [title, settitle] = useState("");
-  const SubmitHandler = (e)=>{
-    e.preventDefault();
-  }
+        { id: 1, title: "Kaam Karle Bhai", isCompleted: false }
+    ]);
 
   return (
-    <div>
-      <h1>Create Tasks</h1>
-      <form onSubmit={SubmitHandler}>
-        <input  type='text' placeholder='title' onChange={(e)=> settitle(e.target.value)} value={title}/><br></br>
-        <button type='submit'>Create Task</button>
-      </form>
+    <div className="createtodo">
+      <Create todos={todos} settodos={settodos}/>
+      <Read todos={todos} settodos={settodos}/>
     </div>
   )
 }

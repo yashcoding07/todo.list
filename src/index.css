@@ -8,7 +8,47 @@
 html,body {
     height: 100%;
     width: 100%;
-    background-color: black;
-    color: white;
 }
 
+#root{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 1.5rem;
+}
+
+.createtodo{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 1.5rem;
+}
+
+.createtodo form{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.createtodo form input{
+    padding: 0.1rem 1rem;
+    font-size: 1.2rem;
+}
+
+.createtodo form button{
+    padding: 0.1rem 1rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    background-color: lightgreen;
+    border-radius: 0.12rem;
+    border: none;
+}
+
+.createtodo form button:active{
+    scale: 0.967;
+}
+
+.rendertodos{
+    margin-left: 1rem;
+}
