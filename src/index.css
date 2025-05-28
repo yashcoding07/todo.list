@@ -52,3 +52,21 @@ html,body {
 .rendertodos{
     margin-left: 1rem;
 }
+.rendertodos li{
+    margin-left: 1rem;
+    margin-top: 0.1rem;
+}
+
+.rendertodos button{
+    background-color: red;
+    color: white;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.3rem;
+    margin-left: 1.5rem;
+}
+
+.rendertodos button:active{
+    scale: 0.967;
+}
