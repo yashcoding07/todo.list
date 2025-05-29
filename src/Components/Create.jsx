@@ -16,7 +16,7 @@ const Create = () => {
     data.isCompleted = false;
     
     // const newTodo = {
-    //   id: nanoid(),
+    //   id: nanoid()
     //   // title,
     //   isCompleted: false
     // };
