@@ -21,6 +21,7 @@ html,body {
 .createtodo{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     gap: 2rem;
     font-size: 1.5rem;
 }

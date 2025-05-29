@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { toast } from "react-toastify";
+import { contexttodo } from "../Wrapper";
 
-const Read = (props) => {
+const Read = () => {
 
-    const todos = props.todos;
-    const settodos = props.settodos;
+    const[todos, settodos] = useContext(contexttodo);
 
     const deleteHandler = (id)=>{
         const filtertodo = todos.filter((todo)=> todo.id != id);
         settodos(filtertodo);
+        toast.error("Todo deleted");
     }
 
     const renderTodos = todos.map(todos => {
@@ -19,7 +21,8 @@ const Read = (props) => {
     })
 
     return (
-        <><hr></hr>
+        <>
+            <hr></hr>
             <h2>Tasks to Complete</h2>
             <ol className='rendertodos'>{renderTodos}</ol>
         </>

@@ -1,35 +1,43 @@
-import { useState } from "react";
 import { nanoid } from "nanoid";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { contexttodo } from "../Wrapper";
 
-const Create = (props) => {
-    const todos = props.todos;
-    const settodos = props.settodos;
+const Create = () => {
+    
+    const[todos, settodos] = useContext(contexttodo);
 
-    const [title, settitle] = useState("");
+    // const [title, settitle] = useState("");
+    const {register,handleSubmit,reset} = useForm();// this all are provided by react hook forms
 
-    const SubmitHandler = (e)=>{
-    e.preventDefault();
-
-    const newTodo = {
-      id: nanoid(),
-      title,
-      isCompleted: false
-    };
+    const SubmitHandler = (data)=>{
+    data.id = nanoid();
+    data.isCompleted = false;
+    
+    // const newTodo = {
+    //   id: nanoid(),
+    //   // title,
+    //   isCompleted: false
+    // };
 
     // we can do in both the ways we do this becoz the todos are read only and the settodos replace the value 
     // const copytodos = [...todos]
     // copytodos.push(newTodo);
     // settodos(copytodos);
 
-    settodos([...todos,newTodo]);
-    settitle('');
+    settodos([...todos,data]);
+
+    toast.success("todo created");
+    reset();
   };
 
   return (
-    <><h1>Your Personalised Task List</h1>
+    <>
+      <h1>Your Personalised Task List</h1>
       <h2>Create Tasks</h2>
-      <form onSubmit={SubmitHandler}>
-        <input  type='text' placeholder='title' onChange={(e)=> settitle(e.target.value)} value={title} required/>
+      <form onSubmit={handleSubmit(SubmitHandler)}>
+        <input {...register("title")} type='text' placeholder='title' required/>
         <button type='submit'>Create Task</button>
       </form>
     </>
@@ -37,3 +45,5 @@ const Create = (props) => {
 }
 
 export default Create
+
+// onChange={(e)=>{e.target.value}} value={title} this is used when we do not use react hook forms
