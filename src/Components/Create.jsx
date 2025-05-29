@@ -13,7 +13,7 @@ const Create = () => {
 
     const SubmitHandler = (data)=>{
     data.id = nanoid();
-    data.isCompleted = false;
+    data.isCompleted = false
     
     // const newTodo = {
     //   id: nanoid()
